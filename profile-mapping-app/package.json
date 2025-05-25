@@ -1,0 +1,34 @@
+{
+  "name": "profile-mapping-app",
+  "version": "1.0.0",
+  "description": "A React web application for viewing profiles and mapping locations.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
+    "start": "concurrently --names \"SERVER,CLIENT\" --prefix-colors \"blue,green\" \"cd ../backend && npm start\" \"npm run dev\""
+  },
+  "dependencies": {
+    "@headlessui/react": "^2.2.4",
+    "@heroicons/react": "^2.2.0",
+    "axios": "^0.21.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-leaflet": "^4.2.1",
+    "leaflet": "^1.9.4",
+    "react-router-dom": "^6.0.0",
+    "tailwindcss": "^2.2.19"
+  },
+  "devDependencies": {
+    "@types/leaflet": "^1.9.18",
+    "@vitejs/plugin-react": "^4.0.0",
+    "autoprefixer": "^10.4.21",
+    "concurrently": "^9.1.2",
+    "postcss": "^8.5.3",
+    "vite": "^4.0.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
