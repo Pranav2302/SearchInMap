@@ -6,7 +6,7 @@ const app = express();
 
 // CORS configuration
 app.use(cors({
-  origin: ['https://your-frontend.vercel.app', 'http://localhost:3000'],
+  origin: ['https://search-in-map.vercel.app', 'http://localhost:3000'],
   credentials: true
 }));
 
