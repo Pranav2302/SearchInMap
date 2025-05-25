@@ -1,4 +1,4 @@
-// ProfileList.jsx - Fixed with map integration
+
 import { useProfiles } from '../../context/ProfileContext';
 import ProfileCard from './ProfileCard';
 import LoadingSpinner from '../common/LoadingSpinner';
@@ -30,8 +30,8 @@ export default function ProfileList({ onShowOnMap, selectedProfileId }) {
         <ProfileCard 
           key={profile._id} 
           profile={profile} 
-          onShowOnMap={onShowOnMap} // Pass the function correctly
-          isSelected={selectedProfileId === profile._id} // Fix prop name and comparison
+          onShowOnMap={onShowOnMap} 
+          isSelected={selectedProfileId === profile._id}
         />
       ))}
     </div>
