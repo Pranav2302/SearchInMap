@@ -1,8 +1,10 @@
 import axios from 'axios';
 
-const API_URL = import.meta.env.VITE_API_URL;
+// Use your actual backend URL
+const API_URL = import.meta.env.VITE_API_URL || 'https://search-in-map-upl8.vercel.app/api';
 
-// Create axios instance
+console.log('Using API URL:', API_URL);
+
 const api = axios.create({
   baseURL: API_URL,
   headers: {
@@ -10,12 +12,17 @@ const api = axios.create({
   },
 });
 
-// Add response interceptor for error handling
+// Enhanced error logging
 api.interceptors.response.use(
   (response) => response,
   (error) => {
-    const message = error.response?.data?.message || 'An error occurred';
-    console.error('API Error:', message);
+    console.error('API Error:', {
+      url: error.config?.url,
+      method: error.config?.method,
+      status: error.response?.status,
+      message: error.message,
+      data: error.response?.data
+    });
     return Promise.reject(error);
   }
 );
