@@ -11,6 +11,10 @@ yarn-error.log*
 # Build output
 dist/
 build/
+node_modules/
+dist/
+.vscode/
+.env
 
 # OS / IDE files
 .DS_Store
