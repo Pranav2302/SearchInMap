@@ -20,3 +20,4 @@ router.put('/profiles/:id', updateProfile);
 router.delete('/profiles/:id', deleteProfile);
 
 module.exports = router;
+

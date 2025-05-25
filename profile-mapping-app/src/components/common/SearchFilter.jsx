@@ -7,8 +7,8 @@ export default function SearchFilter() {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   
   // Available filter options
-  const cities = ['New York', 'Los Angeles', 'Chicago', 'London', 'Paris'];
-  const countries = ['USA', 'UK', 'France', 'Germany', 'Japan'];
+  const cities = ['New York', 'Los Angeles', 'Chicago', 'London', 'Paris', 'Pune'];
+  const countries = ['USA', 'UK', 'France', 'Germany', 'Japan', 'India'];
   
   const handleSearchSubmit = (e) => {
     e.preventDefault();

@@ -16,7 +16,8 @@ const getCoordinates = (location) => {
     'Paris': [48.8566, 2.3522],
     'Berlin': [52.5200, 13.4050],
     'Sydney': [-33.8688, 151.2093],
-    'Toronto': [43.6532, -79.3832]
+    'Toronto': [43.6532, -79.3832],
+    'Pune': [18.5204, 73.8567]
   };
   return locationMap[location?.city] || [40.7128, -74.0060];
 };
