@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-// Use your actual backend URL
-const API_URL = import.meta.env.VITE_API_URL || 'https://search-in-map-upl8.vercel.app/api';
+// FIXED: Use your correct backend URL
+const API_URL = import.meta.env.VITE_API_URL || 'https://search-in-map.vercel.app/api';
 
 console.log('Using API URL:', API_URL);
 
@@ -10,6 +10,8 @@ const api = axios.create({
   headers: {
     'Content-Type': 'application/json',
   },
+  // Add timeout to catch deployment issues
+  timeout: 10000
 });
 
 // Enhanced error logging
@@ -21,7 +23,8 @@ api.interceptors.response.use(
       method: error.config?.method,
       status: error.response?.status,
       message: error.message,
-      data: error.response?.data
+      data: error.response?.data,
+      fullError: error
     });
     return Promise.reject(error);
   }
@@ -29,8 +32,15 @@ api.interceptors.response.use(
 
 // Profiles API
 export const getProfiles = async (searchParams = {}) => {
-  const response = await api.get('/profiles', { params: searchParams });
-  return response.data;
+  try {
+    console.log('Fetching profiles with params:', searchParams);
+    const response = await api.get('/profiles', { params: searchParams });
+    console.log('Profiles response:', response.data);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching profiles:', error);
+    throw error;
+  }
 };
 
 export const getProfileById = async (id) => {
