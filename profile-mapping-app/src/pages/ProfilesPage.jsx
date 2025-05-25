@@ -6,8 +6,7 @@ import SearchFilter from '../components/common/SearchFilter';
 
 export default function ProfilesPage() {
   const [mapVisible, setMapVisible] = useState(true);
-  const [selectedProfile, setSelectedProfile] = useState(null); // Add this state
-  
+  const [selectedProfile, setSelectedProfile] = useState(null); 
   // Add this function to handle profile selection
   const handleShowOnMap = (profile) => {
     if (selectedProfile && selectedProfile._id === profile._id) {

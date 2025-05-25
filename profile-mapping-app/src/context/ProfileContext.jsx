@@ -52,10 +52,9 @@ export function ProfileProvider({ children }) {
     try {
       setLoading(true);
       const updated = await updateProfile(id, profileData);
-      // FIX: Change p.id to p._id
+     
       setProfiles(profiles.map(p => p._id === id ? updated : p));
       
-      // FIX: Change selectedProfile?.id to selectedProfile?._id
       if (selectedProfile?._id === id) {
         setSelectedProfile(updated);
       }

@@ -13,8 +13,8 @@ export const useMap = () => {
         setLoading(true);
         setError(null);
         
-        // Replace this with your actual API call
-        const response = await fetch('/api/profiles'); // Adjust URL as needed
+        
+        const response = await fetch('/api/profiles'); 
         
         if (!response.ok) {
           throw new Error(`Failed to fetch profiles: ${response.statusText}`);
