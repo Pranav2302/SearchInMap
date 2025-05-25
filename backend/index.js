@@ -5,11 +5,8 @@ require('dotenv').config();
 
 const app = express();
 
-// Database connection
-mongoose.connect(process.env.MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
+// Database connection (remove deprecated options)
+mongoose.connect(process.env.MONGODB_URI)
 .then(() => console.log('MongoDB connected successfully'))
 .catch((err) => console.error('MongoDB connection error:', err));
 
@@ -21,10 +18,7 @@ app.use(cors({
 
 app.use(express.json());
 
-// Routes - this should mount your API routes under /api
-app.use('/api', require('./routes/api'));
-
-// Health check
+// Health check route
 app.get('/', (req, res) => {
   res.json({ 
     message: 'Backend is running!',
@@ -32,6 +26,13 @@ app.get('/', (req, res) => {
     dbStatus: mongoose.connection.readyState === 1 ? 'connected' : 'disconnected'
   });
 });
+
+// Routes - FIXED
+try {
+  app.use('/api', require('./routes/api'));
+} catch (error) {
+  console.error('Route loading error:', error);
+}
 
 // Error handling middleware
 app.use((error, req, res, next) => {
@@ -49,14 +50,6 @@ app.use('*', (req, res) => {
     path: req.originalUrl 
   });
 });
-
-// Start server locally
-if (process.env.NODE_ENV !== 'production') {
-  const PORT = process.env.PORT || 5000;
-  app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-  });
-}
 
 // Export for Vercel
 module.exports = app;
