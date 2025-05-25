@@ -29,7 +29,11 @@ const connectDB = async () => {
 connectDB();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: ['https://search-in-map.vercel.app', 'http://localhost:3000'],
+  credentials: true
+}));
+
 app.use(bodyParser.json());
 app.use(express.json());
 
