@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // FIXED: Use your correct backend URL
-const API_URL = import.meta.env.VITE_API_URL || 'https://search-in-map.vercel.app/api';
+const API_URL = import.meta.env.VITE_API_URL || 'https://search-in-map.vercel.app';
 
 console.log('Using API URL:', API_URL);
 
