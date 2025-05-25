@@ -68,11 +68,8 @@ const sampleProfiles = [
 
 const seedDatabase = async () => {
   try {
-    // Connect to MongoDB Atlas
-    await mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://pranavkamble0203:Pranav2302@cluster0.tlyzglu.mongodb.net/profile-mapping', {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    // Connect to MongoDB Atlas - removed deprecated options
+    await mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://pranavkamble0203:Pranav2302@cluster0.tlyzglu.mongodb.net/profile-mapping');
 
     console.log('Connected to MongoDB');
 

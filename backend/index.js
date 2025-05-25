@@ -27,9 +27,9 @@ app.get('/', (req, res) => {
   });
 });
 
-// Routes - FIXED
+// Routes - FIXED path
 try {
-  app.use('/api', require('./routes/api'));
+  app.use('/api', require('./api')); // Changed from ./routes/api to ./api
 } catch (error) {
   console.error('Route loading error:', error);
 }

@@ -26,7 +26,8 @@ exports.getAllProfiles = async (req, res, next) => {
     const profiles = await Profile.find(query);
     res.json(profiles);
   } catch (error) {
-    next(error);
+    console.error('Get all profiles error:', error);
+    res.status(500).json({ error: error.message });
   }
 };
 
@@ -41,7 +42,8 @@ exports.getProfileById = async (req, res, next) => {
    
     res.json(profile);
   } catch (error) {
-    next(error);
+    console.error('Get profile by ID error:', error);
+    res.status(500).json({ error: error.message });
   }
 };
 
@@ -52,7 +54,8 @@ exports.createProfile = async (req, res, next) => {
     const savedProfile = await newProfile.save();
     res.status(201).json(savedProfile);
   } catch (error) {
-    next(error);
+    console.error('Create profile error:', error);
+    res.status(500).json({ error: error.message });
   }
 };
 
@@ -71,7 +74,8 @@ exports.updateProfile = async (req, res, next) => {
    
     res.json(updatedProfile);
   } catch (error) {
-    next(error);
+    console.error('Update profile error:', error);
+    res.status(500).json({ error: error.message });
   }
 };
 
@@ -86,7 +90,8 @@ exports.deleteProfile = async (req, res, next) => {
    
     res.json({ message: 'Profile deleted successfully' });
   } catch (error) {
-    next(error);
+    console.error('Delete profile error:', error);
+    res.status(500).json({ error: error.message });
   }
 };
 
@@ -110,7 +115,8 @@ exports.searchProfiles = async (req, res, next) => {
    
     res.json(profiles);
   } catch (error) {
-    next(error);
+    console.error('Search profiles error:', error);
+    res.status(500).json({ error: error.message });
   }
 };
 
@@ -134,6 +140,7 @@ exports.filterProfiles = async (req, res, next) => {
     const profiles = await Profile.find(query);
     res.json(profiles);
   } catch (error) {
-    next(error);
+    console.error('Filter profiles error:', error);
+    res.status(500).json({ error: error.message });
   }
 };
