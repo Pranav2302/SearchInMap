@@ -33,24 +33,6 @@ app.get('/', (req, res) => {
   });
 });
 
-// Test route to check if profiles endpoint is working
-app.get('/test', async (req, res) => {
-  try {
-    const Profile = require('./models/Profile');
-    const count = await Profile.countDocuments();
-    res.json({ 
-      message: 'Test route working',
-      profileCount: count,
-      dbStatus: mongoose.connection.readyState === 1 ? 'connected' : 'disconnected'
-    });
-  } catch (error) {
-    res.status(500).json({ 
-      message: 'Test route error',
-      error: error.message 
-    });
-  }
-});
-
 // Error handling middleware
 app.use((error, req, res, next) => {
   console.error('Error:', error);
@@ -68,5 +50,13 @@ app.use('*', (req, res) => {
   });
 });
 
-// For Vercel
+// Start server locally
+if (process.env.NODE_ENV !== 'production') {
+  const PORT = process.env.PORT || 5000;
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
+}
+
+// Export for Vercel
 module.exports = app;
