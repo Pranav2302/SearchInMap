@@ -74,10 +74,10 @@ export function ProfileProvider({ children }) {
     try {
       setLoading(true);
       await deleteProfile(id);
-      // FIX: Change p.id to p._id
+   
       setProfiles(profiles.filter(p => p._id !== id));
       
-      // FIX: Change selectedProfile?.id to selectedProfile?._id
+      
       if (selectedProfile?._id === id) {
         setSelectedProfile(null);
       }

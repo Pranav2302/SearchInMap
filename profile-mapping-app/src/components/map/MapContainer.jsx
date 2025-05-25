@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useMap } from '../../hooks/useMap';
 import MapControls from './MapControls';
 import MapMarker from './MapMarker';
-import ProfileCard from '../profile/ProfileCard'; // Make sure this import path is correct
+import ProfileCard from '../profile/ProfileCard'; 
 
 // Helper function to get coordinates
 const getCoordinates = (location) => {

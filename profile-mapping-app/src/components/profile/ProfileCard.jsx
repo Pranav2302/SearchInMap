@@ -6,12 +6,12 @@ const ProfileCard = ({ profile, onShowOnMap, isSelected }) => {
   
   const handleShowOnMap = () => {
     if (onShowOnMap) {
-      onShowOnMap(profile); // This should work now
+      onShowOnMap(profile); 
     }
   };
 
   const handleViewProfile = () => {
-    // Use profile._id for navigation (MongoDB uses _id)
+    
     navigate(`/profile/${profile._id}`);
   };
 
