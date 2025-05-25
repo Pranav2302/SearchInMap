@@ -62,7 +62,14 @@ export default function MapView({ selectedProfile, onProfileSelect }) {
       'Berlin': [52.5200, 13.4050],
       'Sydney': [-33.8688, 151.2093],
       'Toronto': [43.6532, -79.3832],
-      'Pune': [18.5204, 73.8567]
+      'Pune': [18.5204, 73.8567],
+  'Kolhapur': [16.7050, 74.2433],
+  'Chennai': [13.0827, 80.2707],
+  'Dubai': [25.276987, 55.296249],
+  'Germany': [51.1657, 10.4515],
+  'New Zealand': [-40.9006, 174.8860],
+  'Manali': [32.2396, 77.1887],
+  'Egypt': [26.8206, 30.8025]
     };
     return locationMap[location?.city] || defaultCenter;
   };
